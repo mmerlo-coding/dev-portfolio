@@ -6,46 +6,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, X, Folder, FolderOpen, ChevronRight, FileCode, Terminal } from "lucide-react";
+import { ExternalLink, Github, Folder, FolderOpen, ChevronRight, FileCode, Terminal, Code } from "lucide-react";
+import { tagIcons, projects } from "@/lib/constants";
 
-const projects = [
-  {
-    title: "E-Commerce Platform",
-    fileName: "e-commerce.tsx",
-    description: "A full-featured online store with Stripe integration, user authentication, and product management.",
-    image: "/ahco-hero-image.png?height=600&width=800",
-    tags: ["Next.js", "Supabase", "Stripe", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "AI Content Generator",
-    fileName: "ai-generator.tsx",
-    description: "An application that leverages AI to generate marketing content, blog posts, and social media captions.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "Node.js", "OpenAI", "PostgreSQL"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Real Estate Dashboard",
-    fileName: "real-estate.tsx",
-    description: "A comprehensive dashboard for real estate agents to manage listings, clients, and analytics.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["Next.js", "Sanity CMS", "ShadCN", "Framer Motion"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Health & Fitness App",
-    fileName: "fitness-app.tsx",
-    description: "A mobile-responsive application for tracking workouts, nutrition, and health metrics.",
-    image: "/placeholder.svg?height=600&width=800",
-    tags: ["React", "Supabase", "Chart.js", "Tailwind CSS"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-];
+// Component to render a tag with its icon
+function TechTag({ tagName }: { tagName: string }) {
+  const IconComponent = tagIcons[tagName] || Code; // Default to Code icon
+  return (
+    <Badge
+      variant="secondary"
+      className="inline-flex items-center gap-1.5 py-1 px-2 whitespace-nowrap border border-transparent hover:border-border transition-colors duration-200"
+    >
+      <IconComponent className="h-3.5 w-3.5" />
+      <span className="text-xs">{tagName}</span>
+    </Badge>
+  );
+}
 
 const folders = [
   {
@@ -60,9 +36,16 @@ export default function ProjectsSection() {
   const isInView = useInView(ref, { once: true, amount: 0.1 });
   const [activeProjectTitle, setActiveProjectTitle] = useState(projects[0].title);
 
-  // Derived state for easier access
   const activeProject = useMemo(() => projects.find((p) => p.title === activeProjectTitle), [activeProjectTitle]);
   const activeProjectIndex = useMemo(() => projects.findIndex((p) => p.title === activeProjectTitle), [activeProjectTitle]);
+
+  // State to manage the currently displayed large image for the active project
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Update currentImageIndex when active project changes
+  useMemo(() => {
+    setCurrentImageIndex(0);
+  }, [activeProjectTitle]);
 
   return (
     <section id="projects" className="p-5 md:p-20 bg-background flex flex-col justify-center items-center">
@@ -109,9 +92,9 @@ export default function ProjectsSection() {
             <div className="w-16"></div> {/* Spacer for alignment */}
           </div>
 
-          {/* Project Content */}
-          <div className="flex h-[600px] md:h-[700px]">
-            {/* File Explorer (Hidden on mobile) */}
+          {/* Project Content Container */}
+          <div className="flex h-[800px] md:h-[1000px]">
+            {/* File Explorer */}
             <div className="hidden md:block w-64 border-r bg-secondary overflow-y-auto">
               <div className="p-2 text-sm font-medium text-muted-foreground">EXPLORER</div>
               <div className="mt-2">
@@ -158,14 +141,14 @@ export default function ProjectsSection() {
               </div>
             </div>
 
-            {/* Project Content */}
+            {/* Project Content Area */}
             <div className="flex-1 flex flex-col">
               {/* Tabs */}
-              <div className="flex overflow-x-auto bg-secondary border-b">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-x-auto bg-secondary border-b">
                 {projects.map((project, index) => (
                   <motion.div
                     key={index}
-                    className={`flex items-center px-4 py-2 border-r cursor-pointer ${
+                    className={`flex items-center px-4 py-2 border-r cursor-pointer w-full ${
                       activeProjectTitle === project.title ? "bg-card text-foreground" : "bg-muted/30 text-muted-foreground"
                     }`}
                     onClick={() => {
@@ -176,7 +159,7 @@ export default function ProjectsSection() {
                     }}
                   >
                     <FileCode size={16} className="mr-2 text-blue-500" />
-                    <span className="truncate max-w-[120px]">{project.fileName}</span>
+                    <span className="truncate max-w-[300px]">{project.fileName}</span>
                   </motion.div>
                 ))}
               </div>
@@ -185,41 +168,66 @@ export default function ProjectsSection() {
               <div className="flex-1 overflow-auto p-6">
                 <AnimatePresence mode="wait">
                   <motion.div
-                    key={activeProjectTitle}
+                    key={activeProjectTitle} // Keyed by title for transitions
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
-                    className="h-full flex flex-col"
+                    className="h-full flex flex-col" // Ensure it takes full height
                   >
+                    {/* Check if activeProject exists before rendering */}
                     {activeProject ? (
                       <>
-                        <div className="mb-6 w-1/3">
-                          <h3 className="text-2xl font-bold mb-2">{activeProject.title}</h3>
-                          <p className="text-muted-foreground mb-4">{activeProject.description}</p>
-                        </div>
-
-                        {/* Project Image */}
-                        <div className="relative flex-1 mb-6 bg-secondary rounded-sm overflow-hidden w-[700px] h-[500px]">
-                          <Image src={activeProject.image || "/placeholder.svg"} alt={`${activeProject.title} screenshot`} fill className="object-cover" />
-                        </div>
-
-                        {/* Project Info Footer */}
-                        <div className="mt-auto">
+                        {/* Main Content: Title, Description, Images */}
+                        <div className="flex-grow mb-6 flex flex-col">
+                          <h3 className="text-2xl font-bold mb-2 shrink-0">{activeProject.title}</h3>
+                          <p className="text-muted-foreground mb-4 text-sm shrink-0">{activeProject.description}</p>
+                          {/* Tags with Icons */}
                           <div className="flex flex-wrap gap-2 mb-4">
-                            {activeProject.tags.map((tag, i) => (
-                              <motion.div
-                                key={i}
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.3, delay: i * 0.05 }}
-                                whileHover={{ scale: 1.1, y: -2 }}
-                              >
-                                <Badge variant="secondary">{tag}</Badge>
-                              </motion.div>
+                            {activeProject.tags.map((tag) => (
+                              <TechTag key={tag} tagName={tag} />
                             ))}
                           </div>
 
+                          {/* Image Viewer Area */}
+                          <div className="flex-grow flex flex-col min-h-[400px]">
+                            {" "}
+                            {/* Ensure image area can grow */}
+                            {/* Main Image Display */}
+                            <div className="relative flex-1 mb-3 bg-secondary rounded-md overflow-hidden">
+                              <Image
+                                src={activeProject.images[currentImageIndex]}
+                                alt={`${activeProject.title} screenshot ${currentImageIndex + 1}`}
+                                fill
+                                className="object-contain w-[1200px] h-[500px]" // Use contain to see whole image
+                                priority={true} // Prioritize the main image
+                                key={activeProjectTitle + currentImageIndex} // Re-render on image change
+                              />
+                            </div>
+                            {/* Thumbnails Row (if more than 1 image) */}
+                            <p className="text-muted-foreground mb-4">More images from the project:</p>
+                            {activeProject.images.length > 1 && (
+                              <div className="grid grid-cols-2 md:grid-cols-6 gap-2 mt-auto shrink-0">
+                                {/* Prevent thumbnails shrinking */}
+                                {activeProject.images.map((imgSrc, imgIndex) => (
+                                  <button
+                                    key={imgIndex}
+                                    onClick={() => setCurrentImageIndex(imgIndex)}
+                                    className={`relative w-32 h-18 rounded-sm overflow-hidden border ${
+                                      currentImageIndex === imgIndex ? "border-primary" : "border-transparent hover:border-muted-foreground/50"
+                                    }`}
+                                  >
+                                    <Image src={imgSrc} alt={`${activeProject.title} thumbnail ${imgIndex + 1}`} fill className="object-cover" loading="lazy" />
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+
+                        {/* Footer Area: Tags and Buttons */}
+                        <div className="mt-auto pt-2">
+                          {/* Action Buttons */}
                           <div className="flex gap-4">
                             <Button asChild size="sm">
                               <Link href={activeProject.liveUrl} target="_blank" rel="noopener noreferrer">
@@ -237,6 +245,7 @@ export default function ProjectsSection() {
                         </div>
                       </>
                     ) : (
+                      // Fallback if activeProject is not found
                       <div className="flex items-center justify-center h-full text-muted-foreground">Select a project to view details.</div>
                     )}
                   </motion.div>
@@ -244,7 +253,7 @@ export default function ProjectsSection() {
               </div>
 
               {/* Terminal */}
-              <div className="border-t bg-secondary p-2 text-xs font-mono">
+              <div className="border-t bg-secondary p-2 text-xs font-mono mt-2">
                 <div className="flex items-center text-muted-foreground">
                   <Terminal size={14} className="mr-2" />
                   <span>
