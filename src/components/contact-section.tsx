@@ -62,7 +62,7 @@ export default function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true, amount: 0.3 }}
-        className="flex flex-col items-center text-center mb-12 md:mb-20"
+        className="flex flex-col items-center text-center mb-12"
       >
         <div className="space-y-4 max-w-[800px]">
           <motion.div
@@ -70,18 +70,18 @@ export default function ContactSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-3 py-1 rounded-full border text-sm font-medium mb-2"
+            className="inline-flex items-center px-3 py-1 rounded-full border text-sm font-medium"
           >
             <span>Contact Me</span>
           </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">Get In Touch</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">Let's work together!</h2>
           <p className="text-muted-foreground text-lg">Have a project in mind or want to collaborate? Feel free to reach out!</p>
         </div>
       </motion.div>
 
       <div ref={ref} className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <motion.div initial={{ opacity: 0, x: -50 }} animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }} transition={{ duration: 0.5 }}>
-          <Card className="h-full border-2 hover:border-primary/20 transition-colors duration-300">
+          <Card className="h-full hover:border-primary/20 transition-colors duration-300">
             <CardHeader>
               <CardTitle>Contact Information</CardTitle>
               <CardDescription>Feel free to reach out through any of these channels</CardDescription>
@@ -109,7 +109,7 @@ export default function ContactSection() {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, x: 50 }} animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }} transition={{ duration: 0.5 }}>
-          <Card className="h-full border-2 hover:border-primary/20 transition-colors duration-300">
+          <Card className="h-full hover:border-primary/20 transition-colors duration-300">
             <CardHeader>
               <CardTitle>Send a Message</CardTitle>
               <CardDescription>Fill out the form below and I'll get back to you as soon as possible</CardDescription>

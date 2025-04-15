@@ -48,7 +48,7 @@ export default function ProjectsSection() {
   }, [activeProjectTitle]);
 
   return (
-    <section id="projects" className="p-5 md:p-20 bg-background flex flex-col justify-center items-center">
+    <section id="projects" className="p-5 md:p-20 bg-muted flex flex-col justify-center items-center">
       <div className="container px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,7 +77,7 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.5 }}
-          className="border rounded-lg overflow-hidden shadow-xl bg-secondary"
+          className="rounded-lg overflow-hidden shadow-xl bg-secondary"
         >
           {/* Code Editor Header */}
           <div className="bg-secondary border-b flex items-center justify-between px-4 py-2">

@@ -12,7 +12,7 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="border-t py-8 md:py-12">
+    <footer className="py-8 md:py-12">
       <div className="container px-4 md:px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
           <motion.div
