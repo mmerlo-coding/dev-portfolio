@@ -92,7 +92,7 @@ export default function Header() {
       animate="visible"
       className={cn("fixed top-0 w-full z-50 transition-all duration-300", isScrolled ? "bg-background/50 backdrop-blur-md" : "bg-transparent")}
     >
-      <div className="container flex items-center justify-between h-16 px-4 md:px-6">
+      <div className="flex items-center justify-between px-4 md:px-10 h-16">
         <Link href="/">
           <motion.div className="text-xl font-bold" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <span className="text-primary">Dev</span>Portfolio
@@ -115,12 +115,11 @@ export default function Header() {
               </Link>
             </motion.div>
           ))}
-          <ModeToggle />
         </nav>
+        <ModeToggle />
 
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center gap-2 z-50">
-          <ModeToggle />
           <Button variant="ghost" size="icon" onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}>
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </Button>

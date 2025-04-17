@@ -48,7 +48,7 @@ export default function ProjectsSection() {
   }, [activeProjectTitle]);
 
   return (
-    <section id="projects" className="p-5 md:p-20 bg-muted flex flex-col justify-center items-center">
+    <section id="projects" className="p-5 md:p-20 bg-muted dark:bg-muted flex flex-col justify-center items-center">
       <div className="container px-4 md:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -77,10 +77,10 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
           transition={{ duration: 0.5 }}
-          className="rounded-lg overflow-hidden shadow-xl bg-secondary"
+          className="rounded-lg overflow-hidden shadow-xl bg-background dark:bg-secondary"
         >
           {/* Code Editor Header */}
-          <div className="bg-secondary border-b flex items-center justify-between px-4 py-2">
+          <div className="dark:bg-secondary bg-background border-b flex items-center justify-between px-4 py-2">
             <div className="flex items-center space-x-2">
               <div className="flex space-x-2">
                 <div className="w-3 h-3 rounded-full bg-destructive" />
@@ -95,7 +95,7 @@ export default function ProjectsSection() {
           {/* Project Content Container */}
           <div className="flex h-[800px] md:h-[1000px]">
             {/* File Explorer */}
-            <div className="hidden md:block w-64 border-r bg-secondary overflow-y-auto">
+            <div className="hidden md:block w-64 border-r bg-backgrounddark:bg-secondary overflow-y-auto">
               <div className="p-2 text-sm font-medium text-muted-foreground">EXPLORER</div>
               <div className="mt-2">
                 {folders.map((folder, folderIndex) => (
@@ -144,12 +144,12 @@ export default function ProjectsSection() {
             {/* Project Content Area */}
             <div className="flex-1 flex flex-col">
               {/* Tabs */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-x-auto bg-secondary border-b">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-x-auto bg-background dark:bg-secondary border-b">
                 {projects.map((project, index) => (
                   <motion.div
-                    key={index}
+                    key={index} 
                     className={`flex items-center px-4 py-2 border-r cursor-pointer w-full ${
-                      activeProjectTitle === project.title ? "bg-card text-foreground" : "bg-muted/30 text-muted-foreground"
+                      activeProjectTitle === project.title ? "dark:bg-card text-foreground bg-muted" : "bg-muted/30 text-muted-foreground"
                     }`}
                     onClick={() => {
                       const selectedProject = projects.find((p) => p.fileName === project.fileName);
@@ -253,7 +253,7 @@ export default function ProjectsSection() {
               </div>
 
               {/* Terminal */}
-              <div className="border-t bg-secondary p-2 text-xs font-mono mt-2">
+              <div className="border-t dark:border-border bg-background dark:bg-secondary p-2 text-xs font-mono mt-2">
                 <div className="flex items-center text-muted-foreground">
                   <Terminal size={14} className="mr-2" />
                   <span>

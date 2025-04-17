@@ -56,7 +56,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" className="p-5 md:p-20 bg-secondary flex flex-col justify-center items-center">
+    <section id="contact" className="p-5 md:p-20 bg-muted dark:bg-secondary flex flex-col justify-center items-center">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

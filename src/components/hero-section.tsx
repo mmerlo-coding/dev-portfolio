@@ -119,9 +119,9 @@ const currentlyLearning = 'AI Integration';`,
             transition: { duration: 0.3 },
           }}
         >
-          <div className="bg-[#1e1e1e] rounded-lg shadow-2xl overflow-hidden border border-gray-800">
+          <div className="dark:bg-[#1e1e1e] rounded-lg shadow-2xl overflow-hidden border dark:border-gray-800">
             {/* Editor header */}
-            <div className="h-6 bg-[#323233] flex items-center px-3">
+            <div className="h-6 dark:bg-[#323233] bg-muted flex items-center px-3">
               <div className="flex space-x-1.5">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500" />
@@ -129,7 +129,7 @@ const currentlyLearning = 'AI Integration';`,
               </div>
             </div>
             {/* Code content */}
-            <div className="p-4 font-mono text-xs text-gray-300 overflow-hidden">
+            <div className="p-4 font-mono text-xs dark:text-gray-300 overflow-hidden">
               <pre className="whitespace-pre-wrap">{block.content}</pre>
             </div>
           </div>

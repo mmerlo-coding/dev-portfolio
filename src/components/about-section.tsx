@@ -68,7 +68,7 @@ export default function AboutSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-3 py-1 rounded-full border text-sm font-medium mb-2"
+            className="bg-card inline-flex items-center px-3 py-1 rounded-full text-sm font-medium mb-2"
           >
             <span>About Me</span>
           </motion.div>
@@ -97,7 +97,7 @@ export default function AboutSection() {
                   onClick={() => setActiveFeature(index)}
                   className={`w-full cursor-pointer text-left p-4 rounded-lg transition-all duration-300 flex items-start gap-4 ${
                     activeFeature === index
-                      ? "bg-gray-100 dark:bg-card border-l-2 border-gray-800 dark:border-border"
+                      ? "bg-card border-l-2 border-gray-800 dark:border-border"
                       : "bg-secondary hover:bg-card border-l-2 border-transparent"
                   }`}
                 >
