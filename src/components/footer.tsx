@@ -12,36 +12,32 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="py-8 md:py-12">
-      <div className="container px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="text-center md:text-left"
-          >
-            <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} MiguelDev. All rights reserved.</p>
+    <footer className="flex flex-col md:flex-row justify-between items-center gap-6 flex-1 p-5 md:px-10 md:py-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className="text-center md:text-left"
+      >
+        <p className="text-sm text-muted-foreground">© {new Date().getFullYear()} MiguelDev. All rights reserved.</p>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="flex items-center gap-4"
+      >
+        {socialLinks.map((link, i) => (
+          <motion.div key={i} whileHover={{ y: -5, scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+            <Link href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+              {link.icon}
+              <span className="sr-only">{link.label}</span>
+            </Link>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-4"
-          >
-            {socialLinks.map((link, i) => (
-              <motion.div key={i} whileHover={{ y: -5, scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                <Link href={link.href} target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
-                  {link.icon}
-                  <span className="sr-only">{link.label}</span>
-                </Link>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </div>
+        ))}
+      </motion.div>
     </footer>
   );
 }
