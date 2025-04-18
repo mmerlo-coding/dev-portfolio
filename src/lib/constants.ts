@@ -1,5 +1,3 @@
-import { DatabaseZap, CreditCard, Wind, Server, BrainCircuit, Database, Component, Zap, BarChart, LucideProps } from "lucide-react";
-
 // Define project data outside the component scope
 export const projects = [
   {

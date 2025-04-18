@@ -74,7 +74,7 @@ export default function ContactSection() {
           >
             <span>Contact Me</span>
           </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">Let's work together!</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">Let&apos;s work together!</h2>
           <p className="text-muted-foreground text-lg">Have a project in mind or want to collaborate? Feel free to reach out!</p>
         </div>
       </motion.div>
@@ -112,7 +112,7 @@ export default function ContactSection() {
           <Card className="h-full hover:border-primary/20 transition-colors duration-300">
             <CardHeader>
               <CardTitle>Send a Message</CardTitle>
-              <CardDescription>Fill out the form below and I'll get back to you as soon as possible</CardDescription>
+              <CardDescription>Fill out the form below and I&apos;ll get back to you as soon as possible</CardDescription>
             </CardHeader>
             <CardContent>
               {isSubmitted ? (
@@ -126,7 +126,7 @@ export default function ContactSection() {
                     <Send className="h-8 w-8 text-gray-800 dark:text-gray-200" />
                   </motion.div>
                   <h3 className="text-xl font-bold">Message Sent!</h3>
-                  <p className="text-muted-foreground">Thank you for reaching out. I'll get back to you shortly.</p>
+                  <p className="text-muted-foreground">Thank you for reaching out. I&apos;ll get back to you shortly.</p>
                   <Button variant="outline" onClick={() => setIsSubmitted(false)}>
                     Send Another Message
                   </Button>

@@ -77,6 +77,8 @@ const ExperienceSection = () => {
     visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
+  const itemRef = useRef(null);
+  const isInView = useInView(itemRef, { once: true, amount: 0.3 });
   return (
     <section id="experience" ref={sectionRef} className="p-5 md:p-20 bg-secondary flex flex-col items-center overflow-hidden">
       {/* Section Header */}
@@ -109,8 +111,6 @@ const ExperienceSection = () => {
         <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-[1px] bg-border md:-ml-px" aria-hidden="true"></div>
 
         {experienceData.map((item, index) => {
-          const itemRef = useRef(null);
-          const isInView = useInView(itemRef, { once: true, amount: 0.3 });
           const isLeftMd = index % 2 === 0;
 
           return (

@@ -6,18 +6,18 @@ import { Code, Database, Palette, Sparkles, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 
+type Feature = {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  skills: { name: string; logo: string }[];
+  proficiency: string;
+};
+
 export default function AboutSection() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, amount: 0.2 });
   const [activeFeature, setActiveFeature] = useState(0);
-
-  type Feature = {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-    skills: { name: string; logo: string }[];
-    proficiency: string;
-  };
 
   const features: Feature[] = [
     {
@@ -221,7 +221,7 @@ export default function AboutSection() {
 }
 
 // Animated content for the feature details panel
-function AnimatedFeatureContent({ feature, index }: { feature: any; index: number }) {
+function AnimatedFeatureContent({ feature, index }: { feature: Feature; index: number }) {
   return (
     <motion.div
       key={index}

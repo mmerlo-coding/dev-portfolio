@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Folder, FolderOpen, ChevronRight, FileCode, Terminal, Code } from "lucide-react";
+import { ExternalLink, Github, Folder, FolderOpen, ChevronRight, FileCode, Terminal } from "lucide-react";
 import { tagIcons, projects } from "@/lib/constants";
 
 // Component to render a tag with its icon

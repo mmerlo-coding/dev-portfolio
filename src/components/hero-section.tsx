@@ -151,7 +151,7 @@ const currentlyLearning = 'AI Integration';`,
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              Hi, I'm Miguel
+              Hi, I&apos;m Miguel
             </motion.h1>
 
             <motion.div
@@ -169,7 +169,7 @@ const currentlyLearning = 'AI Integration';`,
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              I'm a full-stack developer specializing in Next.js applications that serve thousands of users and solve complex problems.
+              I&apos;m a full-stack developer specializing in Next.js applications that serve thousands of users and solve complex problems.
             </motion.p>
 
             {/* Buttons */}

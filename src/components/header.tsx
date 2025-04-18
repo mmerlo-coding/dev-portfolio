@@ -132,7 +132,7 @@ export default function Header() {
           {mobileMenuOpen && (
             <motion.div className="fixed inset-0 bg-secondary z-40 pt-16" variants={mobileMenuVariants} initial="closed" animate="open" exit="closed">
               <nav className="flex flex-col items-center gap-6 p-8 bg-secondary">
-                {navItems.map((item, i) => (
+                {navItems.map((item) => (
                   <motion.div key={item.name} variants={mobileNavItemVariants} className="w-full">
                     <Link
                       href={item.path}
