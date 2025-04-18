@@ -95,7 +95,7 @@ export default function Header() {
       <div className="flex items-center justify-between px-4 md:px-10 h-16">
         <Link href="/">
           <motion.div className="text-xl font-bold" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <span className="text-primary">Dev</span>Portfolio
+            <span className="text-primary">Miguel</span>Dev
           </motion.div>
         </Link>
 

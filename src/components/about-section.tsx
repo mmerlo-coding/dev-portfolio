@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { Code, Database, Palette, Sparkles, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import Image from "next/image";
 
 export default function AboutSection() {
   const containerRef = useRef(null);
@@ -14,7 +15,7 @@ export default function AboutSection() {
     icon: React.ReactNode;
     title: string;
     description: string;
-    skills: string[];
+    skills: { name: string; logo: string }[];
     proficiency: string;
   };
 
@@ -23,16 +24,29 @@ export default function AboutSection() {
       icon: <Code className="h-8 w-8 text-gray-800 dark:text-gray-200" />,
       title: "Front-End Development",
       description:
-        "Creating responsive and interactive user interfaces with React, Next.js, and modern CSS frameworks. I focus on building seamless user experiences with attention to performance and accessibility.",
-      skills: ["React", "Next.js", "ShadCN", "Framer Motion", "Responsive Design"],
+        "Creating responsive and interactive user interfaces with React, Next.js, Tailwind CSS, ShadCN, and Framer Motion. I focus on building seamless user experiences with attention to performance and accessibility. Responsiveness is a priority for me, as well as the reusability of the code.",
+      skills: [
+        { name: "React", logo: "/react-logo.png" },
+        { name: "Next.js", logo: "/nextjs-icon.png" },
+        { name: "ShadCN", logo: "/shadcn.png" },
+        { name: "Framer Motion", logo: "/framer-motion.png" },
+        { name: "Typescript", logo: "/ts-logo.png" },
+        { name: "Tailwind CSS", logo: "/tailwind.png" },
+      ],
       proficiency: "Advanced",
     },
     {
       icon: <Database className="h-8 w-8 text-gray-800 dark:text-gray-200" />,
       title: "Back-End Solutions",
       description:
-        "Building robust server-side applications with Node.js, Supabase, and PostgreSQL. I develop secure, scalable APIs and database solutions that power modern web applications.",
-      skills: ["Node.js", "Supabase", "PostgreSQL", "API Development", "Stripe Integration"],
+        "Building robust server-side applications with Next.js,Node.js, Supabase, and PostgreSQL. I develop secure, scalable APIs and database solutions that power modern web applications.",
+      skills: [
+        { name: "Node.js", logo: "/nodejs.png" },
+        { name: "Supabase", logo: "/supabase.png" },
+        { name: "PostgreSQL", logo: "/postgresql.png" },
+        { name: "API Development", logo: "/api.png" },
+        { name: "Stripe Integration", logo: "/stripe.png" },
+      ],
       proficiency: "Intermediate",
     },
     {
@@ -40,7 +54,12 @@ export default function AboutSection() {
       title: "AI Integration",
       description:
         "Implementing AI technologies to create intelligent and adaptive web applications. I leverage cutting-edge AI tools to enhance functionality and create unique user experiences.",
-      skills: ["AI Development", "OpenAI Integration", "LLM Implementation", "Chatbot Development"],
+      skills: [
+        { name: "AI Development", logo: "/ai.jpg" },
+        { name: "OpenAI Integration", logo: "/openai.png" },
+        { name: "LLM Implementation", logo: "/openai.png" },
+        { name: "Chatbot Development", logo: "/chatbot.jpg" },
+      ],
       proficiency: "Intermediate",
     },
     {
@@ -48,7 +67,11 @@ export default function AboutSection() {
       title: "UI/UX Design",
       description:
         "Transforming designs from PSD and Figma into beautiful, functional websites. I bridge the gap between design and development to create visually stunning interfaces.",
-      skills: ["Figma to HTML", "PSD Conversion", "UI Animation", "Design Systems", "GOHIGHLEVEL"],
+      skills: [
+        { name: "Figma to HTML", logo: "/figma.png" },
+        { name: "PSD Conversion", logo: "/psd.png" },
+        { name: "GOHIGHLEVEL", logo: "/gohighlevel.png" },
+      ],
       proficiency: "Advanced",
     },
   ];
@@ -75,9 +98,7 @@ export default function AboutSection() {
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">
             Passionate about creating <span className="text-primary">exceptional</span> digital experiences
           </h2>
-          <p className="text-muted-foreground text-lg">
-            Some of my skills and tools that I use to create exceptional digital experiences.
-          </p>
+          <p className="text-muted-foreground text-lg">Some of my skills and tools that I use to create exceptional digital experiences.</p>
         </div>
       </motion.div>
 
@@ -138,22 +159,46 @@ export default function AboutSection() {
           <h3 className="text-xl font-bold mb-6">Additional Skills & Tools</h3>
           <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
             {[
-              "TypeScript",
-              "Tailwind CSS",
-              "Git",
-              "GitHub",
-              "Vercel",
-              "Netlify",
-              "Jest",
-              "Cypress",
-              "Webpack",
-              "Vite",
-              "GraphQL",
-              "REST API",
-              "Docker",
-              "AWS",
-              "Firebase",
-              "MongoDB",
+              {
+                name: "Git",
+                logo: "/git.png",
+              },
+              {
+                name: "GitHub",
+                logo: "/github.png",
+              },
+              {
+                name: "Vercel",
+                logo: "/vercel.png",
+              },
+              {
+                name: "Bitbucket",
+                logo: "/bitbucket.png",
+              },
+              {
+                name: "Jest",
+                logo: "/jest.png",
+              },
+              {
+                name: "Zustand",
+                logo: "/zustand.png",
+              },
+              {
+                name: "Firebase",
+                logo: "/firebase.png",
+              },
+              {
+                name: "Docker",
+                logo: "/docker.png",
+              },
+              {
+                name: "AWS",
+                logo: "/aws.png",
+              },
+              {
+                name: "MongoDB",
+                logo: "/mongodb.png",
+              },
             ].map((skill, i) => (
               <motion.div
                 key={i}
@@ -162,8 +207,9 @@ export default function AboutSection() {
                 transition={{ duration: 0.3, delay: 0.6 + i * 0.03 }}
                 whileHover={{ scale: 1.1, y: -5 }}
               >
-                <Badge className="px-3 py-1 text-sm rounded-full">
-                  {skill}
+                <Badge className="flex items-center gap-2 px-3 py-1 text-sm rounded-full">
+                  {skill.name}
+                  <Image src={skill.logo} alt={skill.name} width={22} height={22} />
                 </Badge>
               </motion.div>
             ))}
@@ -203,15 +249,16 @@ function AnimatedFeatureContent({ feature, index }: { feature: any; index: numbe
 
       <p className="text-muted-foreground">{feature.description}</p>
       <div className="flex flex-wrap gap-2">
-        {feature.skills.map((skill: string, i: number) => (
+        {feature.skills.map((skill: { name: string; logo: string }, i: number) => (
           <motion.span
             key={i}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.3, delay: i * 0.05 }}
-            className="px-3 py-1 border border-border rounded-full text-sm"
+            className="flex items-center gap-2 px-3 py-1 border border-border rounded-full text-sm"
           >
-            {skill}
+            {skill.name}
+            <Image src={skill.logo} alt={skill.name} width={22} height={22} />
           </motion.span>
         ))}
       </div>

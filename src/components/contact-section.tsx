@@ -32,17 +32,17 @@ export default function ContactSection() {
     {
       icon: <Mail className="h-6 w-6 text-gray-800 dark:text-gray-200" />,
       title: "Email",
-      value: "contact@devportfolio.com",
+      value: "miguealemer@gmail.com",
     },
     {
       icon: <Phone className="h-6 w-6 text-gray-800 dark:text-gray-200" />,
       title: "Phone",
-      value: "+1 (555) 123-4567",
+      value: "+57 323 675 2310",
     },
     {
       icon: <MapPin className="h-6 w-6 text-gray-800 dark:text-gray-200" />,
       title: "Location",
-      value: "San Francisco, CA",
+      value: "Bogotá, Colombia",
     },
   ];
 

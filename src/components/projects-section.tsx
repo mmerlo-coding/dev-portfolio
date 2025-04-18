@@ -11,13 +11,12 @@ import { tagIcons, projects } from "@/lib/constants";
 
 // Component to render a tag with its icon
 function TechTag({ tagName }: { tagName: string }) {
-  const IconComponent = tagIcons[tagName] || Code; // Default to Code icon
   return (
     <Badge
       variant="secondary"
       className="inline-flex items-center gap-1.5 py-1 px-2 whitespace-nowrap border border-transparent hover:border-border transition-colors duration-200"
     >
-      <IconComponent className="h-3.5 w-3.5" />
+      <Image src={tagIcons[tagName]} alt={tagName} width={22} height={22} />
       <span className="text-xs">{tagName}</span>
     </Badge>
   );
@@ -147,7 +146,7 @@ export default function ProjectsSection() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 overflow-x-auto bg-background dark:bg-secondary border-b">
                 {projects.map((project, index) => (
                   <motion.div
-                    key={index} 
+                    key={index}
                     className={`flex items-center px-4 py-2 border-r cursor-pointer w-full ${
                       activeProjectTitle === project.title ? "dark:bg-card text-foreground bg-muted" : "bg-muted/30 text-muted-foreground"
                     }`}

@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 export default function HeroSection() {
   const targetRef = useRef<HTMLDivElement>(null);
@@ -22,9 +22,9 @@ export default function HeroSection() {
 
   // Social links
   const socialLinks = [
-    { icon: <Github size={20} />, href: "https://github.com", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "https://linkedin.com", label: "LinkedIn" },
-    { icon: <Twitter size={20} />, href: "https://twitter.com", label: "Twitter" },
+    { icon: <Github size={20} />, href: "https://github.com/mmerlo-coding", label: "GitHub" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/miguel-alejandro-merlo-cadieres-2155a7141/", label: "LinkedIn" },
+    { icon: <Twitter size={20} />, href: "https://x.com/8ersrk", label: "Twitter" },
   ];
 
   // Code blocks content
@@ -33,8 +33,8 @@ export default function HeroSection() {
       id: 1,
       content: `// Full-stack developer
 const developer = {
-  name: 'DevPortfolio',
-  skills: ['React', 'Next.js', 'Supabase'],
+  name: 'Miguel Developer',
+  skills: ['JavaScript', 'TypeScript', 'Node.js', 'STRIPE'],
   passion: 'Building amazing web experiences',
   services: [
     'Front-end Development',
@@ -44,7 +44,7 @@ const developer = {
   ],
   contact: 'Get in touch to start a project'
 }`,
-      position: { top: "20%", left: "15%" },
+      position: { top: "15%", left: "15%" },
       rotation: -5,
       delay: 0.2,
     },
@@ -57,7 +57,7 @@ const developer = {
 // Expertise areas
 const expertise = [
   'Web Applications',
-  'E-commerce Solutions',
+  'Payments Architecture',
   'API Development',
   'Responsive Design'
 ];`,
@@ -69,10 +69,11 @@ const expertise = [
       id: 3,
       content: `// Technologies I work with
 const technologies = {
-  frontend: ['React', 'Next.js', 'Tailwind CSS'],
+  frontend: ['Next.js', 'Tailwind CSS', 'ShadCN', 'Typescript'],
   backend: ['Node.js', 'Express', 'Supabase'],
-  tools: ['Git', 'VS Code', 'Figma', 'Vercel'],
-  databases: ['PostgreSQL', 'MongoDB', 'Firebase']
+  tools: ['Git', 'Cursor', 'Figma', 'Vercel'],
+  databases: ['PostgreSQL', 'MongoDB', 'Firebase'],
+  payments: ['Stripe'],
 };`,
       position: { bottom: "10%", left: "15%" },
       rotation: -5,
@@ -142,8 +143,7 @@ const currentlyLearning = 'AI Integration';`,
           {/* Name and Location */}
           <div className="flex flex-col items-center gap-4">
             <Avatar className="w-20 h-20">
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarImage src="/miguel-logo.png" alt="Miguel Logo" />
             </Avatar>
             <motion.h1
               className="text-4xl md:text-6xl font-bold tracking-tighter"
@@ -160,7 +160,7 @@ const currentlyLearning = 'AI Integration';`,
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex items-center justify-center text-muted-foreground"
             >
-              <span>Living in Bogota, Colombia.</span>
+              <span>I live in Bogota, Colombia.</span>
             </motion.div>
 
             <motion.p
@@ -169,9 +169,9 @@ const currentlyLearning = 'AI Integration';`,
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              I'm a full-stack developer specializing in Next.js and React applications that scale and serve thousands of users.
+              I'm a full-stack developer specializing in Next.js applications that serve thousands of users and solve complex problems.
             </motion.p>
-            
+
             {/* Buttons */}
             <motion.div
               className="flex flex-col sm:flex-row justify-center gap-4 p-2"
@@ -201,12 +201,7 @@ const currentlyLearning = 'AI Integration';`,
             >
               {socialLinks.map((link, i) => (
                 <motion.div key={i} whileHover={{ y: -5, scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-                  <Link
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className=""
-                  >
+                  <Link href={link.href} target="_blank" rel="noopener noreferrer" className="">
                     {link.icon}
                     <span className="sr-only">{link.label}</span>
                   </Link>
