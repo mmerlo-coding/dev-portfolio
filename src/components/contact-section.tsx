@@ -108,7 +108,7 @@ export default function ContactSection() {
           >
             <span>Contact Me</span>
           </motion.div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">Let's work together!</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">Let&apos;s work together!</h2>
           <p className="text-muted-foreground text-lg">Have a project in mind or want to collaborate? Feel free to reach out!</p>
         </div>
       </motion.div>
@@ -164,7 +164,7 @@ export default function ContactSection() {
                     <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
                   </motion.div>
                   <h3 className="text-xl font-bold">Message Sent Successfully!</h3>
-                  <p className="text-muted-foreground">Thank you for reaching out. I'll be in touch soon.</p>
+                  <p className="text-muted-foreground">Thank you for reaching out. I&apos;ll be in touch soon.</p>
                   <Button
                     variant="outline"
                     onClick={() => {

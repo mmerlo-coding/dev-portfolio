@@ -80,10 +80,10 @@ export async function sendContactEmail(data: ContactFormData): Promise<{ success
 
     console.log("Mailgun Response:", msg); // Log success response from Mailgun
     return { success: true, error: null };
-  } catch (error: any) {
+  } catch (error) {
     console.error("Mailgun API Error:", error);
     // Try to provide a more specific error message if possible
-    const errorMessage = error.message || "Failed to send email due to an unknown error.";
+    const errorMessage = error instanceof Error ? error.message : "Failed to send email due to an unknown error.";
     return { success: false, error: errorMessage };
   }
 }
