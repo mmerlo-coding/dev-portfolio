@@ -18,6 +18,19 @@ interface ExperienceItem {
 // Sample experience data - replace with your actual experience
 const experienceData: ExperienceItem[] = [
   {
+    company: "FrontEnd Developer",
+    title: "Outsource SA",
+    duration: "2018 - 2019",
+    year: "2018",
+    descriptionPoints: [
+      "Worked on purely HTML, CSS and JavaScript projects for clients in the US and Europe.",
+      "Gained experience in working with different CMSs like WordPress, Joomla and Drupal.",
+      "Learned about SEO and how to optimize websites for search engines.",
+      "Learned about team collaboration using GIT, and communication with the client and shareholders.",
+    ],
+    icon: <Building className="h-5 w-5" />,
+  },
+  {
     company: "Stripe Payments",
     title: "Implementation Consultant / Payments Architect",
     duration: "2019 - 2022",
@@ -34,7 +47,7 @@ const experienceData: ExperienceItem[] = [
   {
     company: "ArchitekHealth Inc.",
     title: "Software Engineer",
-    duration: "Sept 2022 - Sept 2023",
+    duration: "Sept 2022 - Sept 2024",
     year: "2022",
     descriptionPoints: [
       "Developed and maintained responsive web applications using React Next.js, Tailwind CSS, and ShadCN.",
@@ -48,8 +61,8 @@ const experienceData: ExperienceItem[] = [
   {
     company: "Linsenrechner",
     title: "Full Stack Development",
-    duration: "Sep 2023 - Present",
-    year: "2023",
+    duration: "Sept 2024 - Present",
+    year: "2024",
     descriptionPoints: [
       "Currently working on a full stack application for the company using React, Next.js, Tailwind CSS, and ShadCN. As a single developer for the company I'm responsible for the full development process.",
       "Created a full backend and API routes for securing the business logic and data of the company.",

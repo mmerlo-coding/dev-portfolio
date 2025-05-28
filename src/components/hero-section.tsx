@@ -23,7 +23,7 @@ export default function HeroSection() {
   // Social links
   const socialLinks = [
     { icon: <Github size={20} />, href: "https://github.com/mmerlo-coding", label: "GitHub" },
-    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/miguel-alejandro-merlo-cadieres-2155a7141/", label: "LinkedIn" },
+    { icon: <Linkedin size={20} />, href: "https://www.linkedin.com/in/miguelmerlodev/", label: "LinkedIn" },
     { icon: <Twitter size={20} />, href: "https://x.com/8ersrk", label: "Twitter" },
   ];
 
