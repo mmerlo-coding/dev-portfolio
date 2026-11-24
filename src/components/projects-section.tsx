@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useEffect } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -41,8 +41,7 @@ export default function ProjectsSection() {
   // State to manage the currently displayed large image for the active project
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Update currentImageIndex when active project changes
-  useMemo(() => {
+  useEffect(() => {
     setCurrentImageIndex(0);
   }, [activeProjectTitle]);
 

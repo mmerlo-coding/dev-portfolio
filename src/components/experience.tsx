@@ -150,11 +150,11 @@ const ExperienceSection = () => {
   const sectionRef = useRef(null);
 
   // Variants defined in the parent
-  const variantsLeft = {
+  const variantsLeft: Variants = {
     hidden: { opacity: 0, x: -100 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
-  const variantsRight = {
+  const variantsRight: Variants = {
     hidden: { opacity: 0, x: 100 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };

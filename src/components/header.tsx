@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -32,7 +32,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const headerVariants = {
+  const headerVariants: Variants = {
     hidden: { y: -100, opacity: 0 },
     visible: {
       y: 0,
@@ -45,7 +45,7 @@ export default function Header() {
     },
   };
 
-  const navItemVariants = {
+  const navItemVariants: Variants = {
     hidden: { opacity: 0, y: -10 },
     visible: (i: number) => ({
       opacity: 1,
@@ -57,7 +57,7 @@ export default function Header() {
     }),
   };
 
-  const mobileMenuVariants = {
+  const mobileMenuVariants: Variants = {
     closed: {
       opacity: 0,
       x: "100%",
@@ -80,7 +80,7 @@ export default function Header() {
     },
   };
 
-  const mobileNavItemVariants = {
+  const mobileNavItemVariants: Variants = {
     closed: { opacity: 0, x: 50 },
     open: { opacity: 1, x: 0 },
   };
