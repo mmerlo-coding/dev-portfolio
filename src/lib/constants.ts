@@ -1,5 +1,33 @@
 // Define project data outside the component scope
 export const projects = [
+   {
+    title: "PRICELOGIC AI",
+    fileName: "pricelogic-ai.tsx",
+    description:
+      "PriceLogic AI is a platform that uses AI to talk to your data. Powered by Diana AI. Diana understands the business behind the question. From daily operations to deeper analysis and unexpected discoveries, get answers from across your Amazon business and connected data.",
+    images: [
+      "/pricelogic-demo.png?height=600&width=800&text=PriceLogic+AI",
+      "/pricelogic-demo-2.png?height=600&width=800&text=PriceLogic+AI+Features",
+    ],
+    tags: ["Next.js", "Tailwind CSS", "React", "React Query", "Makerkit SDK", "Supabase", "PostgreSQL", "AWS", "OPEN AI SDK", "Project Management"],
+    liveUrl: "https://pricelogic.ai",
+    githubUrl: "#",
+  },
+  {
+    title: "Architek Health",
+    fileName: "architek-health.tsx",
+    description:
+      "A full-featured telemedicine platform with a focus on patient-centric care and provider-client communication. Front-end built with Next.js, AWS, Stripe, Tailwind CSS, and React. Back-end built with DynamoDB, Lambda, and API Gateway. I was responsible for overseeing the Front-end department and maintain the applications.s",
+    images: [
+      "/ahco-hero-image.png?height=600&width=800",
+      "/ahco-features-3.png?height=300&width=400&text=Image+2",
+      "/provider-client-ahco.png?height=300&width=400&text=Image+3",
+      "/ahco-features.png?height=300&width=400&text=Image+4",
+    ],
+    tags: ["Next.js", "AWS", "Stripe", "Tailwind CSS", "React", "Node.js", "DynamoDB", "Lambda", "API Gateway"],
+    liveUrl: "https://www.architekhealth.com",
+    githubUrl: "https://github.com/mmerlo-coding",
+  },
   {
     title: "CSAT AI",
     fileName: "csat-ai.tsx",
@@ -83,21 +111,6 @@ export const projects = [
     tags: ["Next.js", "Tailwind CSS", "React", "Webhooks", "Persistent Storage", "Firebase"],
     liveUrl: "https://amazonwebscraper-alejandromcad13.vercel.app",
     githubUrl: "https://github.com/Alejandromcad13/amazonwebscraper",
-  },
-  {
-    title: "Architek Health",
-    fileName: "architek-health.tsx",
-    description:
-      "A full-featured telemedicine platform with a focus on patient-centric care and provider-client communication. Front-end built with Next.js, AWS, Stripe, Tailwind CSS, and React. Back-end built with DynamoDB, Lambda, and API Gateway. I was responsible for overseeing the Front-end department and maintain the applications.s",
-    images: [
-      "/ahco-hero-image.png?height=600&width=800",
-      "/ahco-features-3.png?height=300&width=400&text=Image+2",
-      "/provider-client-ahco.png?height=300&width=400&text=Image+3",
-      "/ahco-features.png?height=300&width=400&text=Image+4",
-    ],
-    tags: ["Next.js", "AWS", "Stripe", "Tailwind CSS", "React", "Node.js", "DynamoDB", "Lambda", "API Gateway"],
-    liveUrl: "https://www.architekhealth.com",
-    githubUrl: "https://github.com/mmerlo-coding",
   },
 ];
 
